@@ -1,0 +1,25 @@
+public class loopcontainsgretestvalue {
+    public static void main(String[] args) {
+        int loop1 = 10;
+        int loop2 = 20;
+        int loop3 = 30;
+
+        int greatestValue;
+
+        if (loop1 > loop2) {
+            if (loop1 > loop3) {
+                greatestValue = loop1;
+            } else {
+                greatestValue = loop3;
+            }
+        } else {
+            if (loop2 > loop3) {
+                greatestValue = loop2;
+            } else {
+                greatestValue = loop3;
+            }
+        }
+
+        System.out.println("The greatest value is: " + greatestValue);
+    }
+}
