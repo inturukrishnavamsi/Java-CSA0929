@@ -1,0 +1,100 @@
+import java.util.Scanner;
+
+public class ShortestPath {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        int n = scanner.nextInt();
+
+        
+        int[][] adjMatrix = new int[n][n];
+
+        
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                adjMatrix[i][j] = Integer.MAX_VALUE;
+            }
+        }
+
+        
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                int weight = scanner.nextInt();
+                adjMatrix[i][j] = weight;
+            }
+        }
+
+        
+        int source = scanner.nextInt();
+        int destination = scanner.nextInt();
+
+        
+        int shortestPath = dijkstra(adjMatrix, source, destination);
+
+        
+        System.out.println("The shortest path from " + source + " to " + destination + " is " + shortestPath);
+    }
+
+    public static int dijkstra(int[][] adjMatrix, int source, int destination) {
+      
+        Set<Integer> visited = new HashSet<>();
+
+        
+        int[] distance = new int[adjMatrix.length];
+
+        
+        for (int i = 0; i < distance.length; i++) {
+            distance[i] = Integer.MAX_VALUE;
+        }
+
+      
+        distance[source] = 0;
+
+        
+        PriorityQueue<Vertex> queue = new PriorityQueue<>((v1, v2) -> Integer.compare(distance[v1.index], distance[v2.index]));
+
+        
+        queue.add(new Vertex(source, 0));
+
+        
+        while (!queue.isEmpty()) {
+            
+            Vertex vertex = queue.poll();
+
+          
+            if (vertex.index == destination) {
+                return distance[vertex.index];
+            }
+
+          
+            visited.add(vertex.index);
+
+            
+            for (int i = 0; i < adjMatrix[vertex.index].length; i++) {
+                
+                if (!visited.contains(i) && distance[i] > distance[vertex.index] + adjMatrix[vertex.index][i]) {
+                    
+                    distance[i] = distance[vertex.index] + adjMatrix[vertex.index][i];
+
+                    
+                    queue.add(new Vertex(i, distance[i]));
+                }
+            }
+        }
+
+        
+        return -1;
+    }
+
+    private static class Vertex {
+        int index;
+        int distance;
+
+        public Vertex(int index, int distance) {
+            this.index = index;
+            this.distance = distance;
+        }
+    }
+}
