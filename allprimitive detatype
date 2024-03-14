@@ -1,0 +1,46 @@
+public class allprimitivedt {
+
+    public static void main(String[] args) {
+
+
+        byte b = 10;
+        short s = b;
+        int i = s;
+        long l = i;
+        float f = l;
+        double d = f;
+
+        System.out.println("Byte value: " + b);
+        System.out.println("Short value: " + s);
+        System.out.println("Int value: " + i);
+        System.out.println("Long value: " + l);
+        System.out.println("Float value: " + f);
+        System.out.println("Double value: " + d);
+
+        double d1 = 1234567890.1234567890;
+        float f1 = (float) d1;
+        long l1 = (long) f1;
+        int i1 = (int) l1;
+        short s1 = (short) i1;
+        byte b1 = (byte) s1;
+
+        System.out.println("Double value: " + d1);
+        System.out.println("Float value: " + f1);
+        System.out.println("Long value: " + l1);
+        System.out.println("Int value: " + i1);
+        System.out.println("Short value: " + s1);
+        System.out.println("Byte value: " + b1);
+
+        int i2 = 1234567890;
+        byte b2 = (byte) i2;
+
+        System.out.println("Int value: " + i2);
+        System.out.println("Byte value: " + b2);
+
+        byte b3 = -128;
+        byte b4 = (byte) (b3 - 1);
+
+        System.out.println("Byte value: " + b3);
+        System.out.println("Byte value: " + b4);
+    }
+}
