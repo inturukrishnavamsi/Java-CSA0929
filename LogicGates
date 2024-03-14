@@ -1,0 +1,15 @@
+public class LogicGates {
+
+    public static void main(String[] args) {
+        int a = 1;
+        int b = 0;
+        int output = a | b;
+        System.out.println("OR gate output: " + output);
+
+        
+        a = 1;
+        b = 0;
+        output = a & b;
+        System.out.println("AND gate output: " + output);
+    }
+}
