@@ -1,0 +1,57 @@
+import java.util.Scanner;
+public class Clock {
+
+        private int hours;
+        private int minutes;
+        private int seconds;
+        private boolean isAM;
+
+        public Clock(int hours, int minutes, int seconds) {
+            if (isValidTime(hours, minutes, seconds)) {
+                this.hours = hours;
+                this.minutes = minutes;
+                this.seconds = seconds;
+                this.isAM = true; // By default set to AM mode
+            } else {
+                System.out.println("Invalid time provided");
+            }
+        }
+
+        private boolean isValidTime(int hours, int minutes, int seconds) {
+            return (hours >= 0 && hours < 24 && minutes >= 0 && minutes < 60 && seconds >= 0 && seconds < 60);
+        }
+
+        public void setAM(boolean isAM) {
+            this.isAM = isAM;
+        }
+
+        public void displayTime() {
+            String time = String.format("%02d:%02d:%02d %s", hours, minutes, seconds, (isAM ? "AM" : "PM"));
+            System.out.println(time);
+        }
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.print("Enter hours: ");
+            int hours = scanner.nextInt();
+
+            System.out.print("Enter minutes: ");
+            int minutes = scanner.nextInt();
+
+            System.out.print("Enter seconds: ");
+            int seconds = scanner.nextInt();
+
+            System.out.print("Is it AM? (true/false): ");
+            boolean isAM = scanner.nextBoolean();
+
+            Clock clock = new Clock(hours, minutes, seconds);
+            clock.setAM(isAM);
+
+            System.out.println("Time set to:");
+            clock.displayTime();
+
+            scanner.close();
+        }
+    }
+
