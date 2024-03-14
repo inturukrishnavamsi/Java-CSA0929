@@ -1,0 +1,28 @@
+public class gratestvalue {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 20;
+        int c = 30;
+
+        // Check if a is greater than b
+        if (a > b) {
+            // Check if a is greater than c
+            if (a > c) {
+                // a is the greatest number
+                System.out.println("a is the greatest number");
+            } else {
+                // c is the greatest number
+                System.out.println("c is the greatest number");
+            }
+        } else {
+            // Check if b is greater than c
+            if (b > c) {
+                // b is the greatest number
+                System.out.println("b is the greatest number");
+            } else {
+                // c is the greatest number
+                System.out.println("c is the greatest number");
+            }
+        }
+    }
+}
