@@ -1,0 +1,30 @@
+class Parent {
+    int a, b;
+
+    // Default constructor
+    Parent() {
+        this.a = 10;
+        this.b = 15;
+    }
+
+    // Parameterized constructor
+    Parent(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    // Method to display values
+    void disp() {
+        System.out.println("a = " + a + ", b = " + b);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Parent obj1 = new Parent(); // Using default constructor
+        obj1.disp(); // Displaying values
+
+        Parent obj2 = new Parent(20, 25); // Using parameterized constructor
+        obj2.disp(); // Displaying values
+    }
+}
