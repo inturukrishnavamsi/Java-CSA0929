@@ -1,0 +1,50 @@
+class Example {
+    // instance variable
+    int value;
+
+    // Constructor with parameter
+    Example(int value) {
+        // Using 'this' to reference instance variable
+        this.value = value;
+    }
+
+    // Another constructor calling this constructor
+    Example() {
+        // Invoking another constructor using 'this'
+        this(0);
+    }
+
+    // Method to update value and return current object
+    Example setValueAndReturn(int newValue) {
+        this.value = newValue;
+        // Returning current object
+        return this;
+    }
+
+    // Method to print the value
+    void display() {
+        System.out.println("Value: " + this.value);
+    }
+
+    // Method to pass current object as a parameter
+    void passObject(Example obj) {
+        System.out.println("Passed object's value: " + obj.value);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Example obj1 = new Example(5);
+        Example obj2 = new Example();
+
+        // Method chaining: updating value and returning current object
+        obj1.setValueAndReturn(10).display();
+
+        // Passing current object as a parameter
+        obj2.passObject(obj1);
+
+        // Returning current object and assigning to another object
+        Example obj3 = obj2.setValueAndReturn(20);
+        obj3.display();
+    }
+}
