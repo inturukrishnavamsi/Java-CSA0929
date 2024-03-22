@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class FactorsOfNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a positive integer: ");
+        int number = scanner.nextInt();
+
+        System.out.println("Number of factors: " + countFactors(number));
+
+        System.out.print("Enter the position of the factor you want to find: ");
+        int nthPosition = scanner.nextInt();
+
+        int nthFactor = findNthFactor(number, nthPosition);
+        if (nthFactor != -1) {
+            System.out.println("The " + nthPosition + "th factor of " + number + " is: " + nthFactor);
+        } else {
+            System.out.println("Factor not found. Please enter a valid position.");
+        }
+
+        scanner.close();
+    }
+
+    public static int countFactors(int number) {
+        int count = 0;
+        for (int i = 1; i <= number; i++) {
+            if (number % i == 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static int findNthFactor(int number, int position) {
+        int count = 0;
+        for (int i = 1; i <= number; i++) {
+            if (number % i == 0) {
+                count++;
+                if (count == position) {
+                    return i;
+                }
+            }
+        }
+        return -1; // Factor not found at the given position
+    }
+}
