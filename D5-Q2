@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+class User {
+    private String name;
+    private String role;
+
+    public User(String name, String role) {
+        this.name = name;
+        this.role = role;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getRole() {
+        return role;
+    }
+}
+
+class Staff extends User {
+    public Staff(String name, String role) {
+        super(name, role);
+    }
+}
+
+class NonTeachingStaff extends Staff {
+    public NonTeachingStaff(String name, String role) {
+        super(name, role);
+    }
+}
+
+public class CollegeUsers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of student users: ");
+        int studentUsers = scanner.nextInt();
+
+        System.out.print("Enter the total number of users including students and staff: ");
+        int totalUsers = scanner.nextInt();
+
+        System.out.println("Enter details for each staff user:");
+        Staff[] staffUsers = new Staff[totalUsers - studentUsers];
+
+        for (int i = 0; i < staffUsers.length; i++) {
+            System.out.print("Enter name for staff user " + (i + 1) + ": ");
+            String name = scanner.next();
+            System.out.print("Enter role for staff user " + (i + 1) + ": ");
+            String role = scanner.next();
+
+            staffUsers[i] = new Staff(name, role);
+        }
+
+        scanner.close();
+
+        int nonTeachingStaffCount = staffUsers.length / 3;
+        NonTeachingStaff[] nonTeachingStaff = new NonTeachingStaff
