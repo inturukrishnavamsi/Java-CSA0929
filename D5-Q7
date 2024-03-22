@@ -1,0 +1,25 @@
+import java.util.Arrays;
+
+public class NumberAndSquareArray {
+    public static void main(String[] args) {
+        int[] numbers = {5, 8, 12, 3}; // Example numbers array
+        
+        int[][] numberAndSquareArray = createNumberAndSquareArray(numbers);
+        
+        System.out.println("Array with numbers and their squares:");
+        for (int[] pair : numberAndSquareArray) {
+            System.out.println(Arrays.toString(pair));
+        }
+    }
+
+    public static int[][] createNumberAndSquareArray(int[] numbers) {
+        int[][] result = new int[numbers.length][2];
+
+        for (int i = 0; i < numbers.length; i++) {
+            result[i][0] = numbers[i];
+            result[i][1] = numbers[i] * numbers[i];
+        }
+
+        return result;
+    }
+}
